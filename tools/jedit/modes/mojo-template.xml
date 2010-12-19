@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+	<!--
+		Made by Krassimir Berov: k.berov@gmail.com
+		2010-12-19
+		
+		Put the folowing entry in catalog.xml in the same directory:
+	<MODE NAME="mojo-template" FILE="mojo-template.xml" FILE_NAME_GLOB="*.{ep,epl}"
+        FIRST_LINE_GLOB="%" />
+        For HTML use mojo-html.xml.
+	-->
+
+<MODE>
+	<PROPS>
+	<PROPERTY NAME="lineComment" VALUE="#" />
+	</PROPS>
+    <RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+        <!-- Embedded Perl -->
+        <IMPORT DELEGATE="MOJOPL"/>
+	</RULES>
+	<RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE" SET="MOJOPL">
+    	<SPAN_REGEXP HASH_CHARS="&lt;%" DELEGATE="perl::MAIN" TYPE="MARKUP">
+			<BEGIN>&lt;%={0,2}</BEGIN>        
+			<END>%&gt;</END>
+		</SPAN_REGEXP>
+		<SEQ_REGEXP HASH_CHARS="%" DELEGATE="perl::MAIN" 
+		TYPE="MARKUP">%={0,2}[^\n].+\n</SEQ_REGEXP>
+    </RULES>
+</MODE>
+
