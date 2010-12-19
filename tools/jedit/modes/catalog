@@ -3,6 +3,8 @@
 <MODES>
   <MODE NAME="mojo-template" FILE="mojo-template.xml"
   FILE_NAME_GLOB="*.{ep,epl}" FIRST_LINE_GLOB="%" />
+  <!-- mojo-html MUST be placed after mojo-template
+     because filename globs are checked in reverse order -->
   <MODE NAME="mojo-html" FILE="mojo-html.xml"
   FILE_NAME_GLOB="*.html.{ep,epl}" FIRST_LINE_GLOB="%" />
   <!-- Add lines like the following, one for each edit mode you add: -->
