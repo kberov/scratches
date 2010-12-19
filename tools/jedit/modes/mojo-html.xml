@@ -1,50 +1,42 @@
 <?xml version="1.0"?>
-
 <!DOCTYPE MODE SYSTEM "xmode.dtd">
-	<!--
-		Made by Krassimir Berov: k.berov@gmail.com
-		2010-12-19
-		Heavily based on asp.xml
-		Put the folowing entry in catalog.xml in the same directory:
-	<MODE NAME="mojo-template" FILE="mojo-html.xml" FILE_NAME_GLOB="*.html.{ep,epl}"
-        FIRST_LINE_GLOB="%" />
-        For any other template use mojo-template.
-	-->
-
+<!--
+    Made by Krassimir Berov: k.berov@gmail.com
+    2010-12-19
+    Put the folowing entry in "catalog" file in the same directory:
+    <MODE NAME="mojo-template" FILE="mojo-html.xml" FILE_NAME_GLOB="*.html.{ep,epl}"
+    FIRST_LINE_GLOB="%" />
+    For any other template use mojo-template.
+    -->
 <MODE>
-	<PROPS>
-		<PROPERTY NAME="commentStart" VALUE="&lt;!--" />
-		<PROPERTY NAME="commentEnd" VALUE="--&gt;" />
-	</PROPS>
-
-    <RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
-        <!-- Perl in HTML -->
-        <IMPORT DELEGATE="MOJOHTML"/>
-        <!-- JavaScript -->
-		<IMPORT DELEGATE="MOJOJS" />
-		<!-- stylesheet -->
-		<IMPORT DELEGATE="MOJOCSS" />
-	</RULES>
-		<!-- These rules sets handle server side perl being mixed into client side javascript -->
-	<RULES SET="MOJOJS">
-		<IMPORT DELEGATE="mojo-template::MOJOPL"/>
-		<IMPORT DELEGATE="html::TAGS"/>
-		<IMPORT DELEGATE="javascript::MAIN"/>
-	</RULES>
-	<RULES SET="MOJOCSS">
-		<IMPORT DELEGATE="mojo-template::MOJOPL"/>
-		<IMPORT DELEGATE="html::TAGS"/>
-		<IMPORT DELEGATE="css::MAIN"/>
-	</RULES>
-	<RULES SET="MOJOHTML">
-		<IMPORT DELEGATE="mojo-template::MOJOPL"/>
-		
-		<!-- markup tags -->
-		<SPAN TYPE="MARKUP" DELEGATE="html::TAGS">
-			<BEGIN>&lt;</BEGIN>
-			<END>&gt;</END>
-		</SPAN>
-		
-	</RULES>
+  <PROPS>
+    <PROPERTY NAME="commentStart" VALUE="&lt;!--" />
+    <PROPERTY NAME="commentEnd" VALUE="--&gt;" />
+  </PROPS>
+  <RULES IGNORE_CASE="TRUE" HIGHLIGHT_DIGITS="TRUE">
+    <!-- Perl in HTML -->
+    <IMPORT DELEGATE="MOJOHTML" />
+    <!-- JavaScript -->
+    <IMPORT DELEGATE="MOJOJS" />
+    <!-- stylesheet -->
+    <IMPORT DELEGATE="MOJOCSS" />
+  </RULES>
+  <!-- These rules sets handle server side perl being mixed into client side javascript -->
+  <RULES SET="MOJOJS">
+    <IMPORT DELEGATE="mojo-template::MAIN" />
+    <IMPORT DELEGATE="html::TAGS" />
+    <IMPORT DELEGATE="javascript::MAIN" />
+  </RULES>
+  <RULES SET="MOJOCSS">
+    <IMPORT DELEGATE="mojo-template::MAIN" />
+    <IMPORT DELEGATE="html::TAGS" />
+    <IMPORT DELEGATE="css::MAIN" />
+  </RULES>
+  <RULES SET="MOJOHTML">
+    <IMPORT DELEGATE="mojo-template::MAIN" />
+    <SPAN TYPE="MARKUP" DELEGATE="html::TAGS">
+      <BEGIN>&lt;</BEGIN>
+      <END>&gt;</END>
+    </SPAN>
+  </RULES>
 </MODE>
-
