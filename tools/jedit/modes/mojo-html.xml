@@ -6,8 +6,9 @@
 		2010-12-19
 		Heavily based on asp.xml
 		Put the folowing entry in catalog.xml in the same directory:
-	<MODE NAME="mojo-template" FILE="mojo-template.xml" FILE_NAME_GLOB="*.{ep,epl}"
+	<MODE NAME="mojo-template" FILE="mojo-html.xml" FILE_NAME_GLOB="*.html.{ep,epl}"
         FIRST_LINE_GLOB="%" />
+        For any other template use mojo-template.
 	-->
 
 <MODE>

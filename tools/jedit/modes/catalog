@@ -6,8 +6,6 @@
         FIRST_LINE_GLOB="%" />
     <MODE NAME="mojo-html" FILE="mojo-html.xml" FILE_NAME_GLOB="*.html.{ep,epl}"
         FIRST_LINE_GLOB="%" />
-    <MODE NAME="mason" FILE="mason.xml" FILE_NAME_GLOB="*.{mas}"
-        FIRST_LINE_GLOB="%" />
 <!-- Add lines like the following, one for each edit mode you add: -->
 <!-- <MODE NAME="foo" FILE="foo.xml" FILE_NAME_GLOB="*.foo" /> -->
 
